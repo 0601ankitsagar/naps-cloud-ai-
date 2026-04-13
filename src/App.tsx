@@ -16,6 +16,9 @@ export default function App() {
       
       <footer className="py-12 border-t border-gray-100 mt-12 bg-white">
         <div className="max-w-5xl mx-auto px-4 text-center">
+          <p className="text-sm text-gray-400 font-medium tracking-wide uppercase">
+            Powered by Advanced Linguistic Analysis & Gemini AI
+          </p>
           <div className="mt-6 flex items-center justify-center gap-8 opacity-40 grayscale">
             <span className="text-xs font-bold">SECURE ENCRYPTION</span>
             <span className="text-xs font-bold">PRIVACY COMPLIANT</span>

@@ -4,7 +4,7 @@ import mammoth from 'mammoth';
 // Set worker source for pdfjs
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
-export async function ingestDocument(file: File): Promise<string> {
+export async function parseFile(file: File): Promise<string> {
   const extension = file.name.split('.').pop()?.toLowerCase();
 
   if (extension === 'pdf') {

@@ -15,9 +15,9 @@ export interface AnalysisResult {
   verdict: string;
 }
 
-export async function probeIntegrity(text: string): Promise<AnalysisResult> {
-  if (!text || text.trim().length === 0) {
-    throw new Error("Please provide some text for analysis.");
+export async function analyzeText(text: string): Promise<AnalysisResult> {
+  if (!text || text.trim().length < 50) {
+    throw new Error("Text is too short for meaningful analysis. Please provide at least 50 characters.");
   }
 
   const response = await ai.models.generateContent({
