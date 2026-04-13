@@ -3,8 +3,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Upload, FileText, Send, Loader2, X, AlertCircle, Activity } from 'lucide-react';
-import { analyzeText, AnalysisResult } from '@/src/lib/gemini';
-import { parseFile } from '@/src/lib/fileParser';
+import { probeIntegrity, AnalysisResult } from '@/src/lib/gemini';
+import { ingestDocument } from '@/src/lib/fileParser';
 import { ScoreCard } from './ScoreCard';
 import { AnalysisDetails } from './AnalysisDetails';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -25,7 +25,7 @@ export function Authenticator() {
       setError(null);
       try {
         setLoading(true);
-        const parsedText = await parseFile(selectedFile);
+        const parsedText = await ingestDocument(selectedFile);
         setText(parsedText);
       } catch (err: any) {
         setError(err.message || 'Failed to parse file');
@@ -47,7 +47,7 @@ export function Authenticator() {
     setResult(null);
 
     try {
-      const analysis = await analyzeText(text);
+      const analysis = await probeIntegrity(text);
       setResult(analysis);
     } catch (err: any) {
       setError(err.message || 'An error occurred during analysis.');
@@ -161,7 +161,8 @@ export function Authenticator() {
                       <Upload className="w-8 h-8 text-gray-400" />
                     </div>
                     <p className="text-lg font-semibold text-gray-900 mb-2">Click to upload or drag and drop</p>
-                    <p className="text-sm text-gray-500">PDF, DOCX, or TXT (Max 10MB)</p>
+                    <p className="text-sm text-gray-500">PDF, DOCX, or TXT</p>
+                    <p className="text-[10px] text-indigo-400 font-bold uppercase tracking-tighter mt-2">Unlimited Cloud Uplink</p>
                   </div>
                 )}
               </div>

@@ -14,12 +14,6 @@ export function Header() {
             <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">AI Authenticity Platform</p>
           </div>
         </div>
-        
-        <nav className="hidden md:flex items-center gap-6">
-          <a href="#" className="text-sm font-medium text-indigo-600">Home</a>
-          <a href="#" className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">How it works</a>
-          <a href="#" className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">API</a>
-        </nav>
       </div>
     </header>
   );

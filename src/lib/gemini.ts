@@ -15,7 +15,7 @@ export interface AnalysisResult {
   verdict: string;
 }
 
-export async function analyzeText(text: string): Promise<AnalysisResult> {
+export async function probeIntegrity(text: string): Promise<AnalysisResult> {
   if (!text || text.trim().length === 0) {
     throw new Error("Please provide some text for analysis.");
   }
